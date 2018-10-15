@@ -1,0 +1,37 @@
+body
+{
+    background-color: silver; /* Le fond de la page sera noir */
+    color: black; /* Le texte de la page sera blanc */
+}
+
+a
+{
+	color: orange;
+}
+table
+{
+background-color: white; /* Le fond de la page sera noir */
+    color: black;	
+}
+tr:hover /* Apparence au survol des liens */
+{
+   text-decoration: underline;
+   color: red;
+}
+/*.Zoom img:hover {
+width:70px;
+height:70px;
+}*/
+tr:nth-child(odd){
+background-color: blue; /* Le fond de la page sera noir */
+    color: white;
+}
+.Zoom img:hover{/*methode2*/
+	transform: scale(2);
+
+}
+@media only screen and (max-width: 500px) {
+    table {
+        background-color: yellow;
+    }
+}
