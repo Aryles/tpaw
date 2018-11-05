@@ -10,24 +10,80 @@
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
         <!-- Place favicon.ico in the root directory -->
 
-        <style>
-          body{
-              background-color: #e9ebee;              
-              font-family: system, -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif;
-              font-size: 16px;
-              margin: 0 auto;
-              max-width: 800px;              
-          }
-        </style>
+      
         
         <!-- Code à dé-commenter si besoin de fichier CSS ou JS -->
-        <!--<link rel="stylesheet" href="style.css">-->
-        <!--<script src="js/main.js"></script>-->
+        <link rel="stylesheet" href="style.css">
+        <script src="formulaire.js"></script>
     </head>
-    <body>        
-        <h1>tp2</h1>
-<p> Coucou</p>
-        <p>Hello world! This is HTML5 Boilerplate.</p>
-        <img src="../galilee.png" alt="Logo Galilee"/>
+    <body onload="hide()">        
+       
+        <h1>TP2 Aw</h1>
+ <section>      
+<table>
+    <form method="post" action="traitement.php">
+<div id="error">
+    <h2>Saisi d'une fiche "Personne"</h2>
+<tr>
+<td>
+<label for="Nom">Nom</label>
+   </td>
+   <td>
+        <input type="text" name="Nom" id="Nom" placeholder="TALBINE" minlength="4" required title="Un nom est requis!" />
+</td>
+</tr>
+<tr>
+<td>
+
+<label for="Prénom">Prénom</label>
+  </td>
+  <td>     
+        <input type="text" name="Prénom" id="Prénom" placeholder="Aryles" size="30" maxlength="10" />
+</td>
+</tr>
+
+
+<tr>
+<td>
+<label for="dn">Date de naissance</label>
+ </td>
+ <td>
+        <input type="Date" name="Datedenaissance" id="dn" placeholder="15/01/1994" size="30" maxlength="10" />
+</td>
+</tr>
+
+
+<tr>
+<td>
+
+<label for="Adresse">Adresse</label>
+</td>
+<td>
+        <input type="text" name="Adresse" id="Adresse" size="30" maxlength="10" />
+</td>
+</tr>
+
+<tr>
+<td>
+<label for="Mail">Mail</label>
+  </td>
+  <td>
+        <input type="email" name="Mail" id="Mail" size="30" placeholder="exemple@gmail.com" />
+</td>
+</tr>
+</div>
+</form>
+
+
+</table>
+<input type="button" value="Validé" onclick="validation()" />
+
+</section>
+
+    
+<div id="erreur" > </div>
+<div id="resultat" > </div>
+    
     </body>
+
 </html>
