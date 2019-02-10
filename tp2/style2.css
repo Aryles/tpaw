@@ -13,7 +13,7 @@ section
 {
  
 border: 3px solid black;
-background: url('galilé.jpg') no-repeat ;
+/*background: url('galilé.jpg') no-repeat ;*/
 
  width: 500px;
 
@@ -58,3 +58,13 @@ border-radius:25px;
 font-size: 12px;	
 
 }
+#buttone
+{
+  display: block;
+  position: relative;
+  margin-left: 200px;
+  margin-top: 20px;
+  color: rgb(60, 60, 160);
+ 
+}
+ 
