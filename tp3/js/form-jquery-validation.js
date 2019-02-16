@@ -22,7 +22,7 @@ $( document ).ready(function() {
         $(prenom).css('border', '3px solid red'); 
     }
     
-    else if ( $('#dn').val() == ""|| $('#dn').val() == "") { 
+    else if ( $('#inputDate').val() == ""|| $('#inputDate').val() == "") { 
         $('#myModal').modal("show");
         $(".modal-title").text("Message erreur");
         $(".modal-body").text("veuillez renseignez le champs date de naissance");
@@ -48,8 +48,8 @@ $( document ).ready(function() {
     else {
         $('#myModal').modal("show");
         $(".modal-title").text( "Bienvenue  "+ document.querySelector("#prenom").value);
-        $(".modal-body").text( "vous etes nés le"+ document.querySelector("#dn").value+" et vous habitez à");
-$(".modal-body").html( "vous etes nés le "+ document.querySelector("#dn").value+" </br>et vous habitez à:"+'</br><img src="https://maps.googleapis.com/maps/api/staticmap?markers='+document.querySelector("#adresse").value+'&zoom=10&size=400x300&key=AIzaSyAkmvI9DazzG9p77IShsz_Di7-5Qn7zkcg"/>');
+        $(".modal-body").text( "vous etes nés le"+ document.querySelector("#inputDate").value+" et vous habitez à");
+$(".modal-body").html( "vous etes nés le "+ document.querySelector("#inputDate").value+" </br>et vous habitez à:"+'</br><img src="https://maps.googleapis.com/maps/api/staticmap?markers='+document.querySelector("#adresse").value+'&zoom=10&size=400x300&key=AIzaSyAkmvI9DazzG9p77IShsz_Di7-5Qn7zkcg"/>');
 $(mail).css('border', '3px solid green'); 
 $(dn).css('border', '3px solid green'); 
 $(prenom).css('border', '3px solid green'); 

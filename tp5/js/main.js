@@ -41,17 +41,69 @@ window.onload = function () {
                 console.log('this.loaded:', this.loaded); // va afficher 'this.loaded: true'
             },
             addCity: function (event) {
-                event.preventDefault(); // pour ne pas recharger la page à la soumission du formulaire
+               
+                   
+                      event.preventDefault(); // pour ne pas recharger la page à la soumission du formulaire
+          
+                       if(this.isCityExist(this.formCityName)){
+                        return  this.messageForm = 'existe déjà';
+                      }else{
+                          this.cityList.push({name : this.formCityName});
+                      }
+                          // remise à zero du message affiché sous le formulaire
+                          this.messageForm = '';
+          
+                          // remise à zero du champ de saisie
+                          this.formCityName = '';
+                      //}
+                      console.log('formCityName:', this.formCityName);
 
-                console.log('formCityName:',this.formCityName);
-                // A compléter dans la suite du TP  
+                  
             },
+            isCityExist: function (_cityName){
+
+                // la méthode 'filter' retourne une liste contenant tous les items ayant un nom égale à _cityName
+                // doc. sur filter : https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Array/filter
+                if( this.cityList.filter(item =>item.name.toUpperCase() == _cityName.toUpperCase()).length>0){
+                    return true;
+                }else{
+                    return false;
+                }
+            },
+            
             remove: function (_city) {      
-                // A compléter dans la suite du TP          
+                
+                this.cityList = this.cityList.filter(item => item.name != _city.name);
+                return  this.messageForm = 'Element supprimé';
+
             }, 
             meteo: function (_city) {  
-                // A compléter dans la suite du TP              
+                this.cityWeatherLoading = true;
+
+                // appel AJAX avec fetch
+                fetch('http://api.openweathermap.org/data/2.5/weather?q='+_city.name+'&units=metric&lang=fr&apikey=a7c985495bb3d7f18ee7a2034c3ca77b')
+                    .then(function(response) {
+                        return response.json();
+                    })
+                    .then(function(json) {
+                        app.cityWeatherLoading = false;
+            
+                        // test du code retour
+                        // 200 = OK
+                        // 404 = city not found 
+                        if(json.cod === 200){
+                            // on met la réponse du webservice dans la variable cityWeather
+                            app.cityWeather = json;
+                            app.message = null;
+                        }else{
+                            app.cityWeather = null;
+                            app.message = 'Météo introuvable pour ' + _city.name 
+                                            + ' (' + json.message+ ')';
+                        }        
+                    });            // A compléter dans la suite du TP              
+            
             }
+        
         }
     });
 }

@@ -1,12 +1,5 @@
-/*
-store.js
-Script pour gérer la liste de contact en JSON
-
-Pour ajouter un contact:  contactStore.add(_name, _firsname, _date, _adress, _mail);
-Pour récuper la liste:    contactStore.getList();
-*/
 var contactStore = (function () {
-    
+
   // variable privée
   var contactList = [];
 
@@ -14,21 +7,22 @@ var contactStore = (function () {
   // the implementation of the module within the function() block
 
   return {
-    add: function(_name, _firsname, _date, _adress, _mail) {
-      var contact = { name: _name,
-                      firstname: _firsname,
-                      date: _date,
-                      adress: _adress,
-                      mail: _mail
-      };
-      // ajout du contact à la liste
-      contactList.push(contact);
-        
-      return contactList;
-    },
+      add: function () {
+          var contact = {
+              name: $('#name').val(),
+              firstname: $('#firstname').val(),
+              date: $('#birth').val(),
+              adress: $('#adresse').val(),
+              mail: $('#mail').val()
+          };
+          // ajout du contact à la liste
+          contactList.push(contact);
 
-    getList: function() {
-      return contactList;
-    }
-  }
+          return contactList;
+      },
+
+      getList: function () {
+          return contactList;
+      }
+  };
 })();
