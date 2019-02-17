@@ -84,6 +84,7 @@ window.onload = function () {
                 fetch('http://api.openweathermap.org/data/2.5/weather?q='+_city.name+'&units=metric&lang=fr&apikey=a7c985495bb3d7f18ee7a2034c3ca77b')
                     .then(function(response) {
                         return response.json();
+                       
                     })
                     .then(function(json) {
                         app.cityWeatherLoading = false;
